@@ -24,7 +24,11 @@ var pluckFirstLineFromFileAsync = function(filePath) {
   };
 
   return filePromise()
-    .then(data => data.toString().split(/\r?\n/)[0])
+    .then(data => {
+      // console.log('data: ', data.toString().split(/\n/)[0]);
+
+      return data.toString().split(/\n/)[0];
+    })
     .catch(err => { throw (err); });
 };
 
